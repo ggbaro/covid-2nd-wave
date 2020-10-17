@@ -2,7 +2,7 @@ import pandas as pd
 from pathlib import Path
 from datetime import timedelta
 
-__out_file__ = Path("../data/dpc-covid19-ita-regioni.json")
+__out_file__ = Path("data/dpc-covid19-ita-regioni.json")
 
 data = pd.read_csv(
     "https://github.com/pcm-dpc/COVID-19/raw/master/"
