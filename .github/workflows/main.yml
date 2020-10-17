@@ -27,3 +27,9 @@ jobs:
         pip install -r requirements.txt
     - name: Compile regional data
       run: python src/unroll_pcm_dpc_regioni.py
+    - name: Update resources
+      uses: test-room-7/action-update-file@v1
+      with:
+          file-path: data/dpc-covid19-ita-regioni.json
+          commit-msg: Updated regional data
+          github-token: ${{ secrets.GITHUB_TOKEN }}
