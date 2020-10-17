@@ -36,18 +36,8 @@ dataset_tm1 = dataset_tm1.loc[:, [
     ]]
 
 data = data.reindex(dataset_tm1.index)
-data["delta_ricoverati_con_sintomi"] = data["ricoverati_con_sintomi"] - dataset_tm1["ricoverati_con_sintomi"]  # noqa: E501
-data["delta_terapia_intensiva"] = data["terapia_intensiva"] - dataset_tm1["terapia_intensiva"]  # noqa: E501
-data["delta_totale_ospedalizzati"] = data["totale_ospedalizzati"] - dataset_tm1["totale_ospedalizzati"]  # noqa: E501
-data["delta_isolamento_domiciliare"] = data["isolamento_domiciliare"] - dataset_tm1["isolamento_domiciliare"]  # noqa: E501
-data["delta_totale_positivi"] = data["totale_positivi"] - dataset_tm1["totale_positivi"]  # noqa: E501
-data["delta_dimessi_guariti"] = data["dimessi_guariti"] - dataset_tm1["dimessi_guariti"]  # noqa: E501
-data["delta_deceduti"] = data["deceduti"] - dataset_tm1["deceduti"]  # noqa: E501
-data["delta_casi_da_sospetto_diagnostico"] = data["casi_da_sospetto_diagnostico"] - dataset_tm1["casi_da_sospetto_diagnostico"]  # noqa: E501
-data["delta_casi_da_screening"] = data["casi_da_screening"] - dataset_tm1["casi_da_screening"]  # noqa: E501
-data["delta_totale_casi"] = data["totale_casi"] - dataset_tm1["totale_casi"]  # noqa: E501
-data["delta_tamponi"] = data["tamponi"] - dataset_tm1["tamponi"]  # noqa: E501
-data["delta_casi_testati"] = data["casi_testati"] - dataset_tm1["casi_testati"]  # noqa: E501
+for col in dataset_tm1.columns:
+    data[f"delta_{col}"] = data[col] - dataset_tm1[col]
 
 data = data.reset_index()
 data = data.dropna(subset=["totale_casi"])
