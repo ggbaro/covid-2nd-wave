@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@[VERSION]"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@[VERSION]"></script>
+  <!-- Import vega-embed -->
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@[VERSION]"></script>
+</head>
+<body>
+
+<div id="vis"></div>
+
+<script type="text/javascript">
+  var spec = "https://gist.githubusercontent.com/ggbaro/e7d3161d66c13a5f8a392e2a8891245b/raw/1e5c0e388ad48ab4094dc6ef16b4acbc71f7c843/COVID-ITA_nuovi_contagiati_per_decorso.json";
+  vegaEmbed('#vis', spec).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+</script>
+</body>
+</html>
